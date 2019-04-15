@@ -1,0 +1,2 @@
+playsound==1.2.2
+ibm_watson==3.0.3
