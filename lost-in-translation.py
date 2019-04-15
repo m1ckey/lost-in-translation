@@ -19,7 +19,7 @@ translator = LanguageTranslatorV3(
 
 def loose_in_translation(text, voice):
     print('text to speech')
-    with open(join(dirname(__file__), './resources/' + voice + '.wav'),
+    with open(join(dirname(__file__), 'resources', voice + '.wav'),
               'wb') as audio_file:
         response = t2s.synthesize(
             text, accept='audio/wav',
@@ -27,12 +27,12 @@ def loose_in_translation(text, voice):
         audio_file.write(response.content)
 
     print('playing result...')
-    playsound('./resources/' + voice + '.wav')
+    playsound(join(dirname(__file__), 'resources', voice + '.wav'),)
 
     print('speech to text')
     print('possible transcripts:')
     transcript = None
-    with open(join(dirname(__file__), './resources/' + voice + '.wav'),
+    with open(join(dirname(__file__), 'resources', voice + '.wav'),
               'rb') as audio_file:
         for r in s2t.recognize(
                 audio=audio_file,
